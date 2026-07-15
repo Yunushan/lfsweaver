@@ -1,0 +1,31 @@
+schema_version = 1
+
+[project]
+name = "lfs-13-rke2-node"
+
+[upstream]
+family = "lfs"
+version = "13.0"
+channel = "stable"
+init = "systemd"
+
+[target]
+architecture = "x86_64"
+profile = "rke2-node"
+outputs = ["raw", "rke2"]
+hostname = "rke2-node"
+
+[executor]
+kind = "qemu"
+privileged = false
+
+[engine]
+kind = "jhalfs"
+
+[verification]
+package_tests = true
+boot = true
+install = false
+reproducible = true
+sbom = true
+provenance = true

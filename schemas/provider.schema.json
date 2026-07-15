@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Yunushan/lfsweaver/raw/main/schemas/provider.schema.json",
+  "title": "LFSWeaver provider descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "family", "releases", "protocol"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+    "family": { "enum": ["lfs", "blfs", "alfs", "mlfs", "glfs", "slfs", "hints", "patches"] },
+    "releases": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "protocol": { "const": "lfsweaver-provider-v1" },
+    "command": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

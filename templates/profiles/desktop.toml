@@ -1,0 +1,5 @@
+[profile]
+id = "desktop"
+description = "Curated BLFS graphical desktop; no third-party GPL desktop code is vendored"
+families = ["blfs", "slfs"]
+required_outputs = ["rootfs", "raw"]

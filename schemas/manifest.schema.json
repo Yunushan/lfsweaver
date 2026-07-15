@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Yunushan/lfsweaver/raw/main/schemas/manifest.schema.json",
+  "title": "LFSWeaver build manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project", "upstream", "target", "executor"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "workspace": { "type": "string", "minLength": 1, "default": ".lfsweaver" }
+      }
+    },
+    "upstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "version", "init"],
+      "properties": {
+        "family": { "enum": ["lfs", "blfs", "mlfs", "glfs", "slfs"] },
+        "version": { "type": "string", "minLength": 1 },
+        "channel": { "enum": ["stable", "development", "rc", "pinned"], "default": "stable" },
+        "init": { "enum": ["systemd", "sysv"] },
+        "book_commit": { "type": "string" },
+        "hints": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "patches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["url", "sha256"],
+            "properties": {
+              "url": { "type": "string", "pattern": "^https://" },
+              "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+            }
+          }
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["architecture", "outputs"],
+      "properties": {
+        "architecture": { "enum": ["i386", "x86_64"] },
+        "profile": { "type": "string", "minLength": 1, "default": "minimal" },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["rootfs", "oci", "docker", "raw", "iso", "k3s", "rke2"] }
+        },
+        "hostname": { "type": "string", "minLength": 1, "default": "lfsweaver" }
+      }
+    },
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["local", "docker", "podman", "qemu", "ssh"] },
+        "endpoint": { "type": "string" },
+        "image": { "type": "string" },
+        "privileged": { "type": "boolean", "default": false }
+      }
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["jhalfs", "native"], "default": "jhalfs" },
+        "ref": { "type": "string" },
+        "config_file": { "type": "string" }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "package_tests": { "type": "boolean", "default": true },
+        "boot": { "type": "boolean", "default": true },
+        "install": { "type": "boolean", "default": false },
+        "reproducible": { "type": "boolean", "default": false },
+        "sbom": { "type": "boolean", "default": true },
+        "provenance": { "type": "boolean", "default": true }
+      }
+    }
+  }
+}

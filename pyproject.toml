@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lfsweaver"
+version = "0.1.0"
+description = "Declarative, evidence-backed orchestration for Linux From Scratch builds"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Yunus ÇOĞAL" }]
+keywords = [
+  "linux-from-scratch",
+  "lfs",
+  "reproducible-builds",
+  "system-image",
+  "automation",
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: Zero-Clause BSD (0BSD)",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: System :: Installation/Setup",
+]
+dependencies = []
+
+[project.scripts]
+lfsweaver = "lfsweaver.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Yunushan/lfsweaver"
+Issues = "https://github.com/Yunushan/lfsweaver/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

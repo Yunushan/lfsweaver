@@ -1,0 +1,7 @@
+[profile]
+id = "gaming"
+description = "Curated GLFS gaming stack; redistribution and GPU evidence vary by component"
+families = ["glfs"]
+architectures = ["x86_64"]
+init = "systemd"
+required_outputs = ["rootfs", "raw"]

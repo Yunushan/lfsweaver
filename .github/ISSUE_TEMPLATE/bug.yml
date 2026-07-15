@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible controller, provider, worker, or verifier defect
+title: "bug: "
+body:
+  - type: markdown
+    attributes:
+      value: Remove credentials and private infrastructure details before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: LFSWeaver version or commit
+    validations:
+      required: true
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream family, version, and commit
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Controller and worker environment
+      description: OS, architecture, executor, worker image/hypervisor, and relevant doctor output.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and sanitized report/log links
+    validations:
+      required: true

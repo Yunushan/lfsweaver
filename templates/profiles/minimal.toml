@@ -1,0 +1,5 @@
+[profile]
+id = "minimal"
+description = "By-the-book base system with no desktop or cluster runtime"
+families = ["lfs"]
+required_outputs = ["rootfs"]

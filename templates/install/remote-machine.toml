@@ -1,0 +1,9 @@
+[install_policy]
+mode = "remote-machine"
+transport = "ssh"
+dry_run = true
+reject_mounted = true
+reject_current_root = true
+require_allowlist = true
+require_model_serial_size_confirmation = true
+require_safety_token_noninteractive = true

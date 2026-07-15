@@ -1,0 +1,6 @@
+[target_policy]
+output = "rke2"
+artifact_kind = "bootable-node-os"
+architectures = ["x86_64"]
+init = "systemd"
+required_tests = ["one-node", "three-node", "dns", "cni", "service", "pvc", "reboot-rejoin"]

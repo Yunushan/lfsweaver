@@ -1,0 +1,4 @@
+[target_policy]
+output = "rootfs"
+required_tests = ["package-tests", "chroot-smoke"]
+publish = ["sha256", "spdx-sbom", "cyclonedx-sbom", "provenance"]

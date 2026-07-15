@@ -1,0 +1,5 @@
+[profile]
+id = "server"
+description = "Curated BLFS networking, SSH, TLS, logging, and administration set"
+families = ["blfs"]
+required_outputs = ["rootfs"]

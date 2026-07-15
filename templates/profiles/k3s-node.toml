@@ -1,0 +1,7 @@
+[profile]
+id = "k3s-node"
+description = "Bootable x86_64 systemd K3s node OS"
+families = ["lfs", "blfs"]
+architectures = ["x86_64"]
+init = "systemd"
+required_outputs = ["raw", "k3s"]

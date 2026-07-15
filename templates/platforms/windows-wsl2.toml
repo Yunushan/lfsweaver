@@ -1,0 +1,5 @@
+[platform]
+id = "windows-wsl2"
+role = "controller"
+worker = "linux-wsl2-or-remote"
+native_lfs_compilation = false

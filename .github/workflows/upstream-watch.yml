@@ -1,0 +1,58 @@
+name: Upstream watch
+
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  stable-release:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        family: [lfs, blfs, mlfs, glfs, slfs]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check modeled stable release
+        id: check
+        shell: bash
+        run: |
+          set +e
+          output=$(PYTHONPATH=src python scripts/check_upstream.py "${{ matrix.family }}")
+          code=$?
+          set -e
+          echo "$output"
+          echo "result=$output" >> "$GITHUB_OUTPUT"
+          if [ "$code" -eq 10 ]; then
+            echo "drift=true" >> "$GITHUB_OUTPUT"
+          elif [ "$code" -ne 0 ]; then
+            exit "$code"
+          else
+            echo "drift=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Open one drift issue
+        if: steps.check.outputs.drift == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT: ${{ steps.check.outputs.result }}
+        shell: bash
+        run: |
+          title="upstream: ${{ matrix.family }} stable release drift"
+          count=$(gh issue list --state open --search "$title in:title" --json number --jq length)
+          if [ "$count" -eq 0 ]; then
+            body=$(printf '%s\n\n```json\n%s\n```\n\n%s\n' \
+              "The scheduled watcher found a stable release that differs from the modeled compatibility registry." \
+              "$RESULT" \
+              "Open a lock-update PR, review the semantic diff, and run the required evidence matrix. Do not promote support from this issue alone.")
+            gh issue create \
+              --title "$title" \
+              --body "$body"
+          fi

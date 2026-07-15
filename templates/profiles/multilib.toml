@@ -1,0 +1,7 @@
+[profile]
+id = "multilib"
+description = "MLFS x86_64 system with selected 32-bit/x32 libraries"
+families = ["mlfs"]
+architectures = ["x86_64"]
+init = "systemd"
+required_outputs = ["rootfs"]

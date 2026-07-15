@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "generated_from": "public build and verification reports only",
+  "claims": [
+    {
+      "id": "controller-python-linux",
+      "description": "Manifest validation, planning, doctor, upstream watch, and evidence validation on Linux",
+      "state": "experimental",
+      "reason": "Implementation and local tests exist; public CI evidence has not been published yet."
+    },
+    {
+      "id": "controller-python-windows",
+      "description": "Controller functions on Windows and Windows Server",
+      "state": "planned",
+      "reason": "The CI matrix is defined but has not produced public evidence."
+    },
+    {
+      "id": "controller-python-macos",
+      "description": "Controller functions on macOS",
+      "state": "planned",
+      "reason": "The CI matrix is defined but has not produced public evidence."
+    },
+    {
+      "id": "lfs-13-systemd-x86_64-rootfs",
+      "description": "LFS 13.0 systemd x86_64 root filesystem",
+      "state": "planned",
+      "reason": "Requires release-blocking full-build evidence."
+    },
+    {
+      "id": "lfs-13-systemd-i386-rootfs",
+      "description": "LFS 13.0 systemd i386 root filesystem",
+      "state": "planned",
+      "reason": "Requires a real i386 build and boot lane."
+    },
+    {
+      "id": "lfs-12.4-sysv-x86_64-rootfs",
+      "description": "Pinned LFS 12.4 SysV x86_64 root filesystem",
+      "state": "planned",
+      "reason": "12.4 is the last coordinated SysV lane; evidence is pending."
+    },
+    {
+      "id": "lfs-13-systemd-x86_64-iso",
+      "description": "Installer ISO that installs to blank media and reboots successfully",
+      "state": "planned",
+      "reason": "ISO verification must include install, eject, reboot, and smoke tests."
+    },
+    {
+      "id": "lfs-13-systemd-x86_64-raw",
+      "description": "BIOS and UEFI bootable raw-disk image",
+      "state": "planned",
+      "reason": "QEMU SeaBIOS and OVMF boot reports are pending."
+    },
+    {
+      "id": "lfs-13-systemd-x86_64-oci",
+      "description": "OCI rootfs image tested with Docker, Podman, and containerd",
+      "state": "planned",
+      "reason": "Runtime matrix evidence is pending."
+    },
+    {
+      "id": "lfs-13-systemd-x86_64-k3s-node",
+      "description": "Bootable K3s node OS image",
+      "state": "planned",
+      "reason": "One- and three-node cluster E2E evidence is pending."
+    },
+    {
+      "id": "lfs-13-systemd-x86_64-rke2-node",
+      "description": "Bootable RKE2 node OS image",
+      "state": "planned",
+      "reason": "One- and three-node cluster E2E evidence is pending."
+    },
+    {
+      "id": "kubernetes-i386",
+      "description": "K3s or RKE2 node image for i386",
+      "state": "unsupported",
+      "reason": "Current K3s and RKE2 releases do not support i386."
+    },
+    {
+      "id": "native-ios-builder",
+      "description": "Native local LFS build on stock iOS",
+      "state": "unsupported",
+      "reason": "Stock iOS is not a supported Linux build host; use a remote Linux worker."
+    },
+    {
+      "id": "glfs-13-sysv",
+      "description": "GLFS 13.0 SysV build",
+      "state": "unsupported",
+      "reason": "Current GLFS is systemd-only upstream."
+    },
+    {
+      "id": "slfs-13-sysv",
+      "description": "SLFS 13.0 SysV build",
+      "state": "unsupported",
+      "reason": "Current SLFS is systemd-only upstream."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[executor]
+kind = "docker"
+image = "ubuntu:24.04"
+privileged = true
+
+# Privileged containers are a convenience path, not a security boundary.
+# Prefer a disposable Linux VM for untrusted package builds.

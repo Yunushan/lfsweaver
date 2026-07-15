@@ -1,0 +1,33 @@
+schema_version = 1
+
+[project]
+name = "lfs-12-4-sysv-i386"
+
+[upstream]
+family = "lfs"
+version = "12.4"
+channel = "pinned"
+init = "sysv"
+book_commit = "12.4"
+
+[target]
+architecture = "i386"
+profile = "minimal"
+outputs = ["rootfs", "raw"]
+hostname = "lfs-sysv"
+
+[executor]
+kind = "qemu"
+privileged = false
+
+[engine]
+kind = "jhalfs"
+ref = "12.4-compatible"
+
+[verification]
+package_tests = true
+boot = true
+install = false
+reproducible = false
+sbom = true
+provenance = true

@@ -1,0 +1,35 @@
+name: Capability proposal
+description: Propose a provider, profile, target, backend, or verification lane
+title: "proposal: "
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal and user value
+    validations:
+      required: true
+  - type: textarea
+    id: tuple
+    attributes:
+      label: Exact capability tuple
+      description: Family, version, init, architecture, profile, output, controller, and worker.
+    validations:
+      required: true
+  - type: textarea
+    id: upstream
+    attributes:
+      label: Upstream support and authoritative references
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Required verification and evidence
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Safety, security, licensing, and maintenance risks
+    validations:
+      required: true

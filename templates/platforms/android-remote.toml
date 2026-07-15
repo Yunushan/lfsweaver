@@ -1,0 +1,5 @@
+[platform]
+id = "android-remote"
+role = "controller"
+worker = "remote-linux"
+native_lfs_compilation = false

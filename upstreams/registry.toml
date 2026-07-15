@@ -1,0 +1,69 @@
+schema_version = 1
+checked_at = "2026-07-15"
+
+[[families]]
+id = "lfs"
+name = "Linux From Scratch"
+current = "13.0"
+current_init = ["systemd"]
+architectures = ["i386", "x86_64"]
+legacy_sysv = "12.4"
+home = "https://www.linuxfromscratch.org/lfs/"
+news = "https://www.linuxfromscratch.org/lfs/news.html"
+
+[[families]]
+id = "blfs"
+name = "Beyond Linux From Scratch"
+current = "13.0"
+current_init = ["systemd"]
+architectures = ["i386", "x86_64"]
+legacy_sysv = "12.4"
+home = "https://www.linuxfromscratch.org/blfs/"
+news = "https://www.linuxfromscratch.org/blfs/news.html"
+
+[[families]]
+id = "alfs"
+name = "Automated Linux From Scratch"
+current = "rolling"
+engine = "jhalfs"
+home = "https://www.linuxfromscratch.org/alfs/"
+source = "https://git.linuxfromscratch.org/jhalfs.git"
+
+[[families]]
+id = "mlfs"
+name = "Multilib Linux From Scratch"
+current = "13.0"
+current_init = ["systemd"]
+architectures = ["x86_64"]
+home = "https://www.linuxfromscratch.org/mlfs/"
+news = "https://www.linuxfromscratch.org/mlfs/news.html"
+
+[[families]]
+id = "glfs"
+name = "Gaming Linux From Scratch"
+current = "13.0"
+current_init = ["systemd"]
+architectures = ["x86_64"]
+home = "https://www.linuxfromscratch.org/glfs/"
+news = "https://www.linuxfromscratch.org/glfs/news.html"
+
+[[families]]
+id = "slfs"
+name = "Supplemental Linux From Scratch"
+current = "13.0"
+current_init = ["systemd"]
+architectures = ["x86_64"]
+home = "https://www.linuxfromscratch.org/slfs/"
+news = "https://www.linuxfromscratch.org/slfs/news.html"
+
+[[families]]
+id = "hints"
+name = "LFS Hints"
+mode = "indexed-opt-in-adapters"
+home = "https://www.linuxfromscratch.org/hints/"
+
+[[families]]
+id = "patches"
+name = "LFS Patches"
+mode = "book-required-or-allowlisted"
+home = "https://www.linuxfromscratch.org/patches/"

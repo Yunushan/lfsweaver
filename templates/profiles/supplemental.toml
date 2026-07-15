@@ -1,0 +1,7 @@
+[profile]
+id = "supplemental"
+description = "Curated SLFS additions selected explicitly by package set"
+families = ["slfs"]
+architectures = ["x86_64"]
+init = "systemd"
+required_outputs = ["rootfs"]

@@ -1,0 +1,35 @@
+schema_version = 1
+
+[project]
+name = "lfs-13-systemd-amd64"
+workspace = ".lfsweaver"
+
+[upstream]
+family = "lfs"
+version = "13.0"
+channel = "stable"
+init = "systemd"
+hints = []
+patches = []
+
+[target]
+architecture = "x86_64"
+profile = "minimal"
+outputs = ["rootfs", "oci", "raw"]
+hostname = "lfs13"
+
+[executor]
+kind = "docker"
+image = "ubuntu:24.04"
+privileged = true
+
+[engine]
+kind = "jhalfs"
+
+[verification]
+package_tests = true
+boot = true
+install = false
+reproducible = true
+sbom = true
+provenance = true

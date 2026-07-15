@@ -1,0 +1,5 @@
+[target_policy]
+output = "raw"
+required_tests = ["partition-check", "filesystem-check", "bios-boot", "uefi-boot", "ssh-smoke"]
+firmware_x86_64 = ["bios", "uefi"]
+firmware_i386 = ["bios"]

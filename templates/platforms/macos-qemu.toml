@@ -1,0 +1,6 @@
+[platform]
+id = "macos-qemu"
+role = "controller"
+worker = "linux-qemu-or-remote"
+native_lfs_compilation = false
+x86_on_apple_silicon = "emulated"

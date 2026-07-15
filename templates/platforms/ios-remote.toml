@@ -1,0 +1,6 @@
+[platform]
+id = "ios-remote"
+role = "web-or-shortcuts-client"
+worker = "remote-linux"
+native_lfs_compilation = false
+local_build = "unsupported"

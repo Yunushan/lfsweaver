@@ -1,0 +1,5 @@
+[target_policy]
+output = "oci"
+required_tests = ["docker-smoke", "podman-smoke", "containerd-smoke"]
+uses_runtime_host_kernel = true
+system_init = "not-applicable"

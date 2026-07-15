@@ -1,0 +1,7 @@
+[profile]
+id = "rke2-node"
+description = "Bootable x86_64 systemd RKE2 node OS"
+families = ["lfs", "blfs"]
+architectures = ["x86_64"]
+init = "systemd"
+required_outputs = ["raw", "rke2"]

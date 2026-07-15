@@ -1,0 +1,4 @@
+[executor]
+kind = "ssh"
+endpoint = "builder.example.invalid"
+privileged = false

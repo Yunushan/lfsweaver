@@ -1,0 +1,4 @@
+[target_policy]
+output = "iso"
+required_tests = ["iso-boot", "blank-disk-install", "media-eject", "installed-disk-boot", "ssh-smoke"]
+verification_install_required = true
